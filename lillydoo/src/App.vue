@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header/>
-    <Trialbox/>
+    <Trialbox @testPaket="wipesType"/>
     <Faqs/>
-    <TrialboxContent/>
+    <TrialboxContent :wipes="wipes"/>
   </div>
 </template>
 
@@ -20,6 +20,20 @@ export default {
     Trialbox,
     Faqs,
     TrialboxContent
+  },
+  data() {
+    return {
+      wipes: null
+    }
+  },
+  mounted() {
+    this.wipesType();
+  },
+  methods: {
+    wipesType(wipes) {
+      console.log(wipes)
+      this.wipes = wipes;
+    }
   }
 }
 </script>

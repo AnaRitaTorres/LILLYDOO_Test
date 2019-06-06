@@ -2,51 +2,55 @@
     <div id="trialbox" class="bright">
         <b-container fluid class="test-container">
             <b-row class="rows text-center"> 
-                <b-col class="see-packet" sm="10" md="5">
+                <b-col class="see-packet" sm="12" md="6">
                     <div class="oekotex-wrapper">
                         <img class="oekotex_logo" src="../assets/imgs/oekotex_de.png" alt="Oeko-Tex Certificate"/>
                     </div>
                     <div class="trial-slider">
                         <ul class="slides">
-                            <li>
+                            <li id="t10">
                                 <img itemprop="image" src="../assets/imgs/lillydoo-testpaket-10.jpg" alt="Lillydoo Testpaket mit Windeln in Größe 1 und 15 Feuchttüchern" draggable="false">
                             </li>
-                            <li>
+                            <li id="t20">
                                 <img itemprop="image" src="../assets/imgs/lillydoo-testpaket-20.jpg" alt="Lillydoo Testpaket mit Windeln in Größe 2 und 15 Feuchttüchern" draggable="false"/> 
                             </li>
-                            <li>
+                            <li id="t30">
                                 <img itemprop="image" src="../assets/imgs/lillydoo-testpaket-30.jpg" alt="Lillydoo Testpaket mit Windeln in Größe 3 und 15 Feuchttüchern" draggable="false"/> 
                             </li>
-                            <li>
+                            <li id="t40" >
                                 <img itemprop="image" src="../assets/imgs/lillydoo-testpaket-40.jpg" alt="Lillydoo Testpaket mit Windeln in Größe 4 und 15 Feuchttüchern" draggable="false"/> 
                             </li>
-                            <li>
+                            <li id="t50">
                                 <img itemprop="image" src="../assets/imgs/lillydoo-testpaket-50.jpg" alt="Lillydoo Testpaket mit Windeln in Größe 5 und 15 Feuchttüchern" draggable="false"/> 
                             </li>
                         </ul>
                     </div>
                 </b-col>
-                <b-col class="select-packet" sm="10" md="5" offset-md="2">
+                <b-col class="select-packet" sm="10" md="5" offset-md="1">
                     <h2>Unser gratis Testpaket</h2>
                     <p class="margin-bottom-10 uppercase">Wähle Deine Größe</p>
-                    <b-button-group class="margin-bottom-30">
-                        <b-button>Button 1</b-button>
-                        <b-button>Button 2</b-button>
-                        <b-button>Button 3</b-button>
-                        <b-button>Button 3</b-button>
-                        <b-button>Button 3</b-button>
+                    <b-button-group class="text-center margin-bottom-30"  size="lg">
+                        <b-button v-on:click="activatePaket(10)" class="button-packet"><p>1</p><span>(2-3 KG)</span></b-button>
+                        <b-button v-on:click="activatePaket(20)" class="button-packet"><p>2</p><span>(3-4 KG)</span></b-button>
+                        <b-button v-on:click="activatePaket(30)" class="button-packet"><p>3</p><span>(4-7 KG)</span></b-button>
+                        <b-button v-on:click="activatePaket(40)" class="button-packet"><p>4</p><span>(7-10 KG)</span></b-button>
+                        <b-button v-on:click="activatePaket(50)" class="button-packet"><p>5</p><span>(10-12 KG)</span></b-button>
                     </b-button-group>
                     <p>
                         Teste jetzt unsere Windeln und Feuchttücher - In Größe 1 - 3 enthält unser Testpaket 
                         unsere Feuchttücher mit 99 % Wasser, ab Gr. 4 erhältst Du unsere Sensitiven Feuchttücher. 
-                        Wir zahlen die Produkte, Du nur den Versand
+                        Wir zahlen die Produkte, Du nur den Versand.
                     </p>
                     <ul>
-                        <li></li>
-                        <li></li>
+                        <li class="primary-color">
+                            Automatischer Übergang ins jederzeit kündbare Windel-Abo für 49,50&nbsp;€ pro Lieferung.
+                        </li>
+                        <li>
+                            Preise inkl. MwSt., ggf. zzgl. <a class="primary-color">Versandkosten</a>
+                        </li>
                     </ul>
                     <b-row>
-                        <b-col sm="12">
+                        <b-col class="text-center" sm="12">
                             <b-button>In den Warenkorb legen</b-button>
                         </b-col>
                     </b-row>
@@ -57,6 +61,108 @@
     </div>
 </template>
 
+
+<script>
+export default {
+    data() {
+        return {
+          wipes: null
+        }
+    },
+    methods: {
+        activatePaket(id) {
+            let v10 = document.getElementById("t10");
+            let v20 = document.getElementById("t20");
+            let v30 = document.getElementById("t30");
+            let v40 = document.getElementById("t40");
+            let v50 = document.getElementById("t50");
+
+            if(id==10) {
+
+                this.wipes = 1;
+                this.$emit("testPaket",this.wipes);
+
+                v10.style.opacity = 1;
+                v10.style.zIndex = 2;
+                v20.style.opacity = 0;
+                v20.style.zIndex = 1;
+                v30.style.opacity = 0;
+                v30.style.zIndex = 1;
+                v40.style.opacity = 0;
+                v40.style.zIndex = 1;
+                v50.style.opacity = 0;
+                v50.style.zIndex = 1;
+            }
+            else if(id==20){
+
+                this.wipes = 1;
+                this.$emit("testPaket",this.wipes);
+
+                v10.style.opacity = 0;
+                v10.style.zIndex = 1;
+                v20.style.opacity = 1;
+                v20.style.zIndex = 2;
+                v30.style.opacity = 0;
+                v30.style.zIndex = 1;
+                v40.style.opacity = 0;
+                v40.style.zIndex = 1;
+                v50.style.opacity = 0;
+                v50.style.zIndex = 1;
+            }
+            else if(id==30) {
+
+                this.wipes = 1;
+                this.$emit("testPaket",this.wipes);
+
+                v10.style.opacity = 0;
+                v10.style.zIndex = 1;
+                v20.style.opacity = 0;
+                v20.style.zIndex = 1;
+                v30.style.opacity = 1;
+                v30.style.zIndex = 2;
+                v40.style.opacity = 0;
+                v40.style.zIndex = 1;
+                v50.style.opacity = 0;
+                v50.style.zIndex = 1;                
+            }
+            else if(id==40) {
+
+                this.wipes = 2;
+                this.$emit("testPaket",this.wipes);
+
+                v10.style.opacity = 0;
+                v10.style.zIndex = 1;
+                v20.style.opacity = 0;
+                v20.style.zIndex = 1;
+                v30.style.opacity = 0;
+                v30.style.zIndex = 1;
+                v40.style.opacity = 1;
+                v40.style.zIndex = 2;
+                v50.style.opacity = 0;
+                v50.style.zIndex = 1;                
+            }
+            else {
+
+                this.wipes = 2;
+                this.$emit("testPaket",this.wipes);
+
+                v10.style.opacity = 0;
+                v10.style.zIndex = 1;
+                v20.style.opacity = 0;
+                v20.style.zIndex = 1;
+                v30.style.opacity = 0;
+                v30.style.zIndex = 1;
+                v40.style.opacity = 0;
+                v40.style.zIndex = 1;
+                v50.style.opacity = 1;
+                v50.style.zIndex = 2;
+            }
+        }
+    }
+}
+</script>
+
+
 <style lang="scss" scoped>
 
 $oekotexPosition: relative;
@@ -66,6 +172,7 @@ $slidesListStyle: none;
 $liWidth: 100%;
 $liFloat: left;
 $liMarginRight: -100%;
+$liMarginLeft: -1%;
 $liPosition: relative;
 $liOpacity: 1;
 $liDisplay: block;
@@ -78,6 +185,24 @@ $selectAlign: left;
 $h2FontSize: 1.688rem;
 $h2LineHeight: 1.2;
 $h2FontWeight: 500;
+
+$ulMarginLeft: 15px;
+
+$liPadding: 0;
+
+$packetPFonTSize: .938rem;
+
+$buttonMarginRight: 10px;
+$buttonRadius: 0 !important;
+$buttonBorder: 1px solid #7c7c7c;
+$buttonColor: #7c7c7c;
+$buttonBackground: transparent;
+$buttonHoverBackground: #00AFAB;
+$buttonShadow: none;
+$buttonPFontSize: 1.3rem;
+$buttonLineHeight: 1;
+$buttonPMargin: 0;
+$buttonSpanFontSize: .8rem;
 
 .oekotex-wrapper {
     position: $oekotexPosition;
@@ -92,17 +217,22 @@ $h2FontWeight: 500;
             width: $liWidth;
             float: $liFloat;
             margin-right: $liMarginRight;
+            margin-left: $liMarginLeft;
             position: $liPosition;
-            opacity: $liOpacity;
             display: $liDisplay;
-            z-index: $liZIndex;
+
         }
     }
 }
 
+#t10 {
+    opacity: 1;
+    z-index: 2;
+}
+
 .see-packet {
     margin: $seeMargin;
-}
+}  
 
 .select-packet {
 
@@ -113,8 +243,60 @@ $h2FontWeight: 500;
         line-height: $h2LineHeight;
         font-weight: $h2FontWeight;
     }
+
+    p {
+        font-size: $packetPFonTSize;
+    }
+
+    ul {
+        padding-left: $ulMarginLeft;
+    }
+
+    li {
+        font-size: $packetPFonTSize;
+        padding: $liPadding;
+    }
 }
 
+.button-packet {
+    padding: 7px 5px 2px 5px !important;
+    width: 30%;
+    height: auto;
+    margin-right: $buttonMarginRight;
+    border-radius: $buttonRadius;
+    border: $buttonBorder;
+    color: $buttonColor;
+    background-color: $buttonBackground;
+    box-shadow: $buttonShadow;
 
+    &:hover {
+        background-color: $buttonHoverBackground;
+        border-color: $buttonHoverBackground;
+        box-shadow: $buttonShadow;
+    }
+
+    &:visited {
+        box-shadow: $buttonShadow;
+    }
+
+    &:active {
+        box-shadow: $buttonShadow;
+    }
+
+    p {
+        font-size: $buttonPFontSize;
+        line-height: $buttonLineHeight;
+        margin: $buttonPMargin;
+    }
+
+    span {
+        line-height: $buttonLineHeight;
+        font-size: $buttonSpanFontSize;
+    }
+}
+
+.primary-color {
+    color: $buttonHoverBackground !important;
+}
 
 </style>
