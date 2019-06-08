@@ -4,7 +4,7 @@
             <b-row class="rows text-center"> 
                 <b-col class="see-packet" sm="12" md="6">
                     <div class="oekotex-wrapper">
-                        <img class="oekotex_logo" src="../assets/imgs/oekotex_de.png" alt="Oeko-Tex Certificate"/>
+                        <img class="oekotex_logo trial_logo" src="../assets/imgs/oekotex_de.png" alt="Oeko-Tex Certificate"/>
                     </div>
                     <div class="trial-slider">
                         <ul class="slides">
@@ -368,4 +368,11 @@ $buttonTrialTransition: background-color .3s ease-out;
     }
 }
 
+.trial_logo {
+    margin-top: 8%;
+    left: 14%;
+    right: 0%;
+    z-index: 10;
+    width: 25%;
+}
 </style>
