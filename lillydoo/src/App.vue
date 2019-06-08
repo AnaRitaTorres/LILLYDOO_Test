@@ -29,9 +29,9 @@ export default {
   mounted() {
     this.wipesType();
   },
+
   methods: {
     wipesType(wipes) {
-      console.log(wipes)
       this.wipes = wipes;
     }
   }

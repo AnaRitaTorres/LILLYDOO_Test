@@ -24,17 +24,17 @@
                 <b-col class="margin-bottom-20" sm="12" md="6">
                     <b-row class="rows text-center">
                         <b-col class="trial-contains-img" sm="3">
-                            <img class="wipes1" src="../assets/imgs/water-wipes-15-small.jpg" alt="LILLYDOO 15 Feuchttücher mit 99% Wasser"/>
-                            <img class="wipes2" src="../assets/imgs/sensitive-wipes-15-small.jpg" alt="LILLYDOO 15 sensitive Feuchttücher"/>
+                            <img v-if="this.wipes!=2" src="../assets/imgs/water-wipes-15-small.jpg" alt="LILLYDOO 15 Feuchttücher mit 99% Wasser"/>
+                            <img v-if="this.wipes==2" src="../assets/imgs/sensitive-wipes-15-small.jpg" alt="LILLYDOO 15 sensitive Feuchttücher"/>
                         </b-col>
-                        <b-col class="trial-info wipes1" sm="8">
+                        <b-col  v-if="this.wipes!=2" class="trial-info" sm="8">
                             <h4>15 Feuchttücher mit 99 % Wasser</h4>
                             <ul>
                                 <li>0 % Parfüme &amp; PEGs, 100 % biologisch abbaubar</li>
                                 <li>Extra dickes und kompostierbares Tuch</li>
                             </ul>
                         </b-col>
-                        <b-col class="trial-info wipes2" sm="8">
+                        <b-col v-if="this.wipes==2" class="trial-info" sm="8">
                             <h4>15 sensitive Feuchttücher</h4>
                             <ul>
                                 <li>0 % Parfüme &amp; PEGs, 100 % biologisch abbaubar</li>
@@ -50,33 +50,7 @@
 
 <script>
 export default {
-    props: ['wipes'],
-    data() {
-        return {
-            wipesVar: this.wipes
-        }
-    },
-    mounted() {
-        this.$nextTick(() => {
-            let w1_img = document.getElementsByClassName('wipes1')[0];
-            let w1_text = document.getElementsByClassName('wipes1')[1];
-            let w2_img = document.getElementsByClassName('wipes2')[0];
-            let w2_text = document.getElementsByClassName('wipes2')[1];
-           
-            if(this.wipesVar==1) {
-                w1_img.style.display = "block"; 
-                w1_text.style.display = "block"; 
-                w2_img.style.display = "none";
-                w2_text.style.display = "none";
-            }
-            else {
-                w1_img.style.display = "none";
-                w1_text.style.display = "none";
-                w2_img.style.display = "block"; 
-                w2_text.style.display = "block"; 
-            }
-        })
-    }
+    props: ['wipes']
 }
 </script>
 
@@ -137,13 +111,4 @@ $ulFontSize: .938rem;
         font-size: $ulFontSize;
     }
 }
-
-.wipes1 {
-    display: block;
-}
-
-.wipes2 {
-    display: none;
-}
-
 </style>

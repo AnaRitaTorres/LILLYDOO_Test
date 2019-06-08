@@ -24,6 +24,7 @@ $containerDisplay: flex;
 $h1FontFamily: Museo300,Helvetica,Roboto,Arial,sans-serif;
 $h1FontSize: 2.625rem;
 $h1LineHeight: 1.1;
+$h1PaddingTop: 20%;
 
 $rowHeight: 50%;
 
@@ -51,6 +52,7 @@ $buttonTransition: background-color .3s ease-out;
         font-family: $h1FontFamily;
         font-size: $h1FontSize;
         line-height: $h1LineHeight;
+        padding-top: $h1PaddingTop;
     }
 }
 

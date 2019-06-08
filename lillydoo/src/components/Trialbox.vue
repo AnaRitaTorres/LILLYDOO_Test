@@ -29,8 +29,8 @@
                 <b-col class="select-packet" sm="10" md="5" offset-md="1">
                     <h2>Unser gratis Testpaket</h2>
                     <p class="margin-bottom-10 uppercase">Wähle Deine Größe</p>
-                    <b-button-group class="text-center margin-bottom-30"  size="lg">
-                        <b-button v-on:click="activatePaket(10)" class="button-packet"><p>1</p><span>(2-3 KG)</span></b-button>
+                    <b-button-group class="text-center margin-bottom-30 button-packet-group" size="lg">
+                        <b-button v-on:click="activatePaket(10)" id="b1" class="button-packet"><p>1</p><span>(2-3 KG)</span></b-button>
                         <b-button v-on:click="activatePaket(20)" class="button-packet"><p>2</p><span>(3-4 KG)</span></b-button>
                         <b-button v-on:click="activatePaket(30)" class="button-packet"><p>3</p><span>(4-7 KG)</span></b-button>
                         <b-button v-on:click="activatePaket(40)" class="button-packet"><p>4</p><span>(7-10 KG)</span></b-button>
@@ -51,7 +51,7 @@
                     </ul>
                     <b-row>
                         <b-col class="text-center" sm="12">
-                            <b-button>In den Warenkorb legen</b-button>
+                            <b-button class="trial-button">In den Warenkorb legen</b-button>
                         </b-col>
                     </b-row>
                 </b-col>
@@ -76,24 +76,9 @@ export default {
             let v30 = document.getElementById("t30");
             let v40 = document.getElementById("t40");
             let v50 = document.getElementById("t50");
-
-            if(id==10) {
-
-                this.wipes = 1;
-                this.$emit("testPaket",this.wipes);
-
-                v10.style.opacity = 1;
-                v10.style.zIndex = 2;
-                v20.style.opacity = 0;
-                v20.style.zIndex = 1;
-                v30.style.opacity = 0;
-                v30.style.zIndex = 1;
-                v40.style.opacity = 0;
-                v40.style.zIndex = 1;
-                v50.style.opacity = 0;
-                v50.style.zIndex = 1;
-            }
-            else if(id==20){
+            let b1 = document.getElementById("b1");
+            
+            if(id==20){
 
                 this.wipes = 1;
                 this.$emit("testPaket",this.wipes);
@@ -108,6 +93,10 @@ export default {
                 v40.style.zIndex = 1;
                 v50.style.opacity = 0;
                 v50.style.zIndex = 1;
+                b1.style.color = "#7c7c7c";
+                b1.style.backgroundColor = "transparent";
+                b1.style.borderColor = "#7c7c7c";
+               
             }
             else if(id==30) {
 
@@ -123,7 +112,10 @@ export default {
                 v40.style.opacity = 0;
                 v40.style.zIndex = 1;
                 v50.style.opacity = 0;
-                v50.style.zIndex = 1;                
+                v50.style.zIndex = 1;    
+                b1.style.color = "#7c7c7c";
+                b1.style.backgroundColor = "transparent";
+                b1.style.borderColor = "#7c7c7c";            
             }
             else if(id==40) {
 
@@ -139,9 +131,12 @@ export default {
                 v40.style.opacity = 1;
                 v40.style.zIndex = 2;
                 v50.style.opacity = 0;
-                v50.style.zIndex = 1;                
+                v50.style.zIndex = 1;
+                b1.style.color = "#7c7c7c";
+                b1.style.backgroundColor = "transparent";
+                b1.style.borderColor = "#7c7c7c";             
             }
-            else {
+            else if(id==50) {
 
                 this.wipes = 2;
                 this.$emit("testPaket",this.wipes);
@@ -156,7 +151,30 @@ export default {
                 v40.style.zIndex = 1;
                 v50.style.opacity = 1;
                 v50.style.zIndex = 2;
+                b1.style.color = "#7c7c7c";
+                b1.style.backgroundColor = "transparent";
+                b1.style.borderColor = "#7c7c7c";
             }
+            else {
+
+                this.wipes = 1;
+                this.$emit("testPaket",this.wipes);
+
+                v10.style.opacity = 1;
+                v10.style.zIndex = 2;
+                v20.style.opacity = 0;
+                v20.style.zIndex = 1;
+                v30.style.opacity = 0;
+                v30.style.zIndex = 1;
+                v40.style.opacity = 0;
+                v40.style.zIndex = 1;
+                v50.style.opacity = 0;
+                v50.style.zIndex = 1;
+                b1.style.color = "#fff";
+                b1.style.backgroundColor = "#00AFAB";
+                b1.style.borderColor = "#00AFAB";
+            }
+
         }
     }
 }
@@ -192,17 +210,34 @@ $liPadding: 0;
 
 $packetPFonTSize: .938rem;
 
+$buttonHeight: auto;
+$buttonWidth: 30%;
+$buttonPadding: 7px 5px 2px 5px !important;
 $buttonMarginRight: 10px;
 $buttonRadius: 0 !important;
 $buttonBorder: 1px solid #7c7c7c;
 $buttonColor: #7c7c7c;
 $buttonBackground: transparent;
+$buttonHoverColor: #fff;
 $buttonHoverBackground: #00AFAB;
 $buttonShadow: none;
 $buttonPFontSize: 1.3rem;
 $buttonLineHeight: 1;
 $buttonPMargin: 0;
 $buttonSpanFontSize: .8rem;
+
+
+$buttonTrialColor: #00AFAB;
+$buttonTrialBorderColor: #99dfdd;
+$buttonTrialBorder: 0;
+$buttonTrialBorderStyle: solid;
+$buttonTrialWidth: 100%;
+$buttonTrialHeight: 45px;
+$buttonTrialTextTransf: uppercase;
+$buttonTrialMarginTop: 14px;
+$buttonTrialMarginBottom: 10px;
+$buttonTrialFontSize: 1.063rem;
+$buttonTrialTransition: background-color .3s ease-out;
 
 .oekotex-wrapper {
     position: $oekotexPosition;
@@ -258,10 +293,21 @@ $buttonSpanFontSize: .8rem;
     }
 }
 
+.button-packet-group {
+    width: 100%;
+}
+
+#b1 {
+    background-color: $buttonHoverBackground;
+    border-color: $buttonHoverBackground;
+    box-shadow: $buttonShadow;
+    color: $buttonHoverColor;
+}
+
 .button-packet {
-    padding: 7px 5px 2px 5px !important;
-    width: 30%;
-    height: auto;
+    padding: $buttonPadding;
+    width: $buttonWidth;
+    height: $buttonHeight;
     margin-right: $buttonMarginRight;
     border-radius: $buttonRadius;
     border: $buttonBorder;
@@ -275,12 +321,18 @@ $buttonSpanFontSize: .8rem;
         box-shadow: $buttonShadow;
     }
 
-    &:visited {
+    &:active {
+        background-color: $buttonHoverBackground;
+        border-color: $buttonHoverBackground;
         box-shadow: $buttonShadow;
+        color: $buttonHoverColor;
     }
 
-    &:active {
+    &:focus {
+        background-color: $buttonHoverBackground;
+        border-color: $buttonHoverBackground;
         box-shadow: $buttonShadow;
+        color: $buttonHoverColor;
     }
 
     p {
@@ -297,6 +349,23 @@ $buttonSpanFontSize: .8rem;
 
 .primary-color {
     color: $buttonHoverBackground !important;
+}
+
+.trial-button {
+    font-size: $buttonTrialFontSize;
+    background-color: $buttonTrialColor;
+    border-color: $buttonTrialBorderColor;
+    border-radius: $buttonTrialBorder;
+    border-width: $buttonTrialBorder;
+    border-style: $buttonTrialBorderStyle;
+    height: $buttonTrialHeight;
+    width: $buttonTrialWidth;
+    text-transform: $buttonTrialTextTransf;
+    transition: $buttonTrialTransition;
+
+    &:hover {
+        background-color: $buttonTrialBorderColor;
+    }
 }
 
 </style>
