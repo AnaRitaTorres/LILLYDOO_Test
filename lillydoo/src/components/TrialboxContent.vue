@@ -86,6 +86,49 @@ $ulFontSize: .938rem;
         font-weight: $h2FontWeight;
     }
 }
+
+@media only screen and (max-width: 52em) {
+    .rows {
+        padding-top: .6rem;
+        padding-bottom: .4rem;
+    }
+}
+
+@media only screen and (max-width: 52em) {
+    .trial {
+         padding-top: .6rem;
+        padding-bottom: .4rem;
+    }
+}
+
+@media only screen and (max-width: 834px) {
+    .trial {
+        padding-left: .938rem;
+        padding-right: .938rem;
+    }
+}
+
+
+@media only screen and (max-width: 834px) {
+    .trial-contains-img {
+        width: 30%;
+        
+    }
+}
+
+@media only screen and (max-width: 834px) {
+    .trial-info {
+        width: 60%;
+    }
+}
+
+/*
+@media only screen and (max-width: 834px) {
+    h4 {
+        line-height: 1.3 !important;
+    }
+}*/
+
 .trial-contains-img {
     float: $trialImgFloat;
     margin-right: $trialImgMarginRight;

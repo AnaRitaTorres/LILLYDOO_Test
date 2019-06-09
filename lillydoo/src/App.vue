@@ -47,6 +47,9 @@ $fontFamily: CeraPro,Helvetica,Roboto,Arial,sans-serif !important;
 $fontWeight: 400 !important;
 $color: #000 !important;
 
+$imgWidth: 100%;
+$imgHeight: auto;
+
 $rowMargin: 0 auto !important;
 $rowPadding: 2rem 0 2rem 0;
 $rowWidth: 100%;
@@ -81,7 +84,8 @@ body {
 }
 
 img {
-  width: 100%;
+  width: $imgWidth;
+  height: $imgHeight;
 }
 
 .rows {

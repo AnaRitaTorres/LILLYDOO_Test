@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-        <b-container fluid class="header-container">
+        <b-container fluid class="header-container text-center">
             <img class="oekotex_logo" src="../assets/imgs/oekotex_de.png" alt="Oeko-Tex Certificate"/>
             <b-row class="rows text-center">
                 <b-col sm="12" md="6">
@@ -40,11 +40,23 @@ $buttonFontSize: 1.063rem;
 $buttonTransition: background-color .3s ease-out;
 
 .header-container {
-    background: $containerBackground no-repeat center center/cover;
-    width: $containerWidth;
-    height: $containerHeight;
-    max-height: $containerMaxHeight;
-    display: $containerDisplay;
+    position: relative;
+    background: $containerBackground;
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f8f8f8;
+    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+      margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+
+    height: auto;
+    min-width: 100%;
+   
+    align-self: flex-end;
 }
 
 .header-container {
@@ -53,6 +65,15 @@ $buttonTransition: background-color .3s ease-out;
         font-size: $h1FontSize;
         line-height: $h1LineHeight;
         padding-top: $h1PaddingTop;
+    }
+}
+
+@media only screen and (max-width: 834px) {
+
+    .header-container {
+        h1 {
+            font-size:2.188rem;
+        }
     }
 }
 

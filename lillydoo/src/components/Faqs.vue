@@ -7,7 +7,7 @@
                 </b-col>
             </b-row>
             <b-row class="rows text-center">
-                <b-col sm="12" md="12">
+                <b-col sm="12" md="12" class="text-center">
                     <ul class="trial-steps">
                         <li class="text-center step">
                             <img src="../assets/imgs/lillydoo-your-trialbox-icon.svg"/>
@@ -69,6 +69,16 @@ $fakeColor: #00afab;
     }
 }
 
+@media only screen and (max-width: 834px) {
+
+    .trial-steps .step {
+        width: 100% !important;
+        float: none !important;
+        margin-bottom: 3.75rem;
+        padding-left:0 !important;
+    }
+}
+
 .trial-steps {
     list-style: $trialStyle;
     margin: $trialMargin;
@@ -102,9 +112,9 @@ $fakeColor: #00afab;
         color: $fakeColor;
     }
     
+    
+
+
+
 }
-
-
-
-
 </style>
