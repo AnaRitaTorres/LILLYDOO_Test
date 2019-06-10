@@ -39,6 +39,11 @@ $h2LineHeight: 1.2;
 $h2MarginBottom: 10px;
 $h2FontWeight: 500;
 
+$trialStepScreenWidth: 100% !important;
+$trialStepScreenFloat:  none !important;
+$trialStepScreenMarginBottom: 3.75rem;
+$trialStepScreenPaddingLeft: 0 !important;
+
 $trialStyle: none;
 $trialMargin: 0;
 
@@ -72,10 +77,10 @@ $fakeColor: #00afab;
 @media only screen and (max-width: 834px) {
 
     .trial-steps .step {
-        width: 100% !important;
-        float: none !important;
-        margin-bottom: 3.75rem;
-        padding-left:0 !important;
+        width: $trialStepScreenWidth;
+        float: $trialStepScreenFloat;
+        margin-bottom: $trialStepScreenMarginBottom;
+        padding-left: $trialStepScreenPaddingLeft;
     }
 }
 
@@ -111,10 +116,5 @@ $fakeColor: #00afab;
     .fake-link {
         color: $fakeColor;
     }
-    
-    
-
-
-
 }
 </style>
