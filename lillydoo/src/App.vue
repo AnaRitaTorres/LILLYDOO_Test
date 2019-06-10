@@ -131,5 +131,4 @@ img {
   text-transform: $uppercase;
 }
 
-
 </style>

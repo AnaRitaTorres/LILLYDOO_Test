@@ -15,16 +15,26 @@
 <style lang="scss" scoped>
 @import '../scss/fonts.scss';
 
+$containerPosition: relative;
 $containerBackground: url('../assets/imgs/lillydoo-testpaket-header-large.jpg');
-$containerWidth: 100%;
-$containerHeight: 36vw;
-$containerMaxHeight: 550px;
+$containerBackgroundSize: cover;
+$containerBackgroundPosition: center;
+$containerBackgroundRepeat: no-repeat;
+$containerBackgroundColor:  #f8f8f8;
 $containerDisplay: flex;
+$containerPadding: 0;
+$containerMargin: 0;
+$containerWidth: 100%;
+$containerHeight: auto;
+$containerAlignSelf: flex-end;
+
 
 $h1FontFamily: Museo300,Helvetica,Roboto,Arial,sans-serif;
 $h1FontSize: 2.625rem;
 $h1LineHeight: 1.1;
 $h1PaddingTop: 20%;
+
+$h1ScreenFontSize: 2.188rem;
 
 $rowHeight: 50%;
 
@@ -40,23 +50,21 @@ $buttonFontSize: 1.063rem;
 $buttonTransition: background-color .3s ease-out;
 
 .header-container {
-    position: relative;
+    position: $containerPosition;
     background: $containerBackground;
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #f8f8f8;
-    display: flex;
-    padding-top: 0;
-    padding-bottom: 0;
-      margin-right: 0;
-    margin-left: 0;
-    width: 100%;
-
-    height: auto;
-    min-width: 100%;
-   
-    align-self: flex-end;
+    background-size: $containerBackgroundSize;
+    background-position: $containerBackgroundPosition;
+    background-repeat: $containerBackgroundRepeat;
+    background-color: $containerBackgroundColor;
+    display: $containerDisplay;
+    padding-top: $containerPadding;
+    padding-bottom: $containerPadding;
+    margin-right: $containerMargin;
+    margin-left: $containerMargin;
+    width: $containerWidth;
+    height: $containerHeight;
+    min-width: $containerWidth;
+    align-self: $containerAlignSelf;
 }
 
 .header-container {
@@ -72,7 +80,7 @@ $buttonTransition: background-color .3s ease-out;
 
     .header-container {
         h1 {
-            font-size:2.188rem;
+            font-size: $h1ScreenFontSize;
         }
     }
 }
