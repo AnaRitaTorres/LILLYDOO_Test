@@ -198,6 +198,9 @@ $liZIndex: 2;
 
 $seeMargin: 0;
 
+$opacity10: 1;
+$zIndex10: 2;
+
 $selectAlign: left;
 
 $h2FontSize: 1.688rem;
@@ -209,6 +212,8 @@ $ulMarginLeft: 15px;
 $liPadding: 0;
 
 $packetPFonTSize: .938rem;
+
+$buttonGroupWidth: 100%;
 
 $buttonHeight: auto;
 $buttonWidth: 30%;
@@ -226,7 +231,6 @@ $buttonLineHeight: 1;
 $buttonPMargin: 0;
 $buttonSpanFontSize: .8rem;
 
-
 $buttonTrialColor: #00AFAB;
 $buttonTrialBorderColor: #99dfdd;
 $buttonTrialBorder: 0;
@@ -238,6 +242,12 @@ $buttonTrialMarginTop: 14px;
 $buttonTrialMarginBottom: 10px;
 $buttonTrialFontSize: 1.063rem;
 $buttonTrialTransition: background-color .3s ease-out;
+
+$trialLogoMarginTop: 8%;
+$trialLogoLeft: 14%;
+$trialLogoRight: 0%;
+$trialLogoZIndex: 10;
+$trialLogoWidth: 25%;
 
 .oekotex-wrapper {
     position: $oekotexPosition;
@@ -261,8 +271,8 @@ $buttonTrialTransition: background-color .3s ease-out;
 }
 
 #t10 {
-    opacity: 1;
-    z-index: 2;
+    opacity: $opacity10;
+    z-index: $zIndex10;
 }
 
 .see-packet {
@@ -294,7 +304,7 @@ $buttonTrialTransition: background-color .3s ease-out;
 }
 
 .button-packet-group {
-    width: 100%;
+    width: $buttonGroupWidth;
 }
 
 #b1 {
@@ -369,10 +379,10 @@ $buttonTrialTransition: background-color .3s ease-out;
 }
 
 .trial_logo {
-    margin-top: 8%;
-    left: 14%;
-    right: 0%;
-    z-index: 10;
-    width: 25%;
+    margin-top: $trialLogoMarginTop;
+    left: $trialLogoLeft;
+    right: $trialLogoRight;
+    z-index: $trialLogoZIndex;
+    width: $trialLogoWidth;
 }
 </style>
