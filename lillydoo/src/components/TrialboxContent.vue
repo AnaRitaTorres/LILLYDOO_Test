@@ -57,6 +57,16 @@ export default {
 
 <style lang="scss" scoped>
 
+$rowsScreenPaddingTop: .6rem;
+$rowsScreenPaddingBottom: .4rem;
+
+$trialScreenPadding: .938rem;
+
+$trialImgScreenWidth: 30%;
+$trialImgScreenPadding: 0 !important;
+
+$trialInfoScreenWidth: 63%;
+
 $h2FontSize: 1.688rem;
 $h2LineHeight: 1.2;
 $h2FontWeight: 500;
@@ -89,45 +99,38 @@ $ulFontSize: .938rem;
 
 @media only screen and (max-width: 52em) {
     .rows {
-        padding-top: .6rem;
-        padding-bottom: .4rem;
+        padding-top: $rowsScreenPaddingTop;
+        padding-bottom: $rowsScreenPaddingBottom;
     }
 }
 
 @media only screen and (max-width: 52em) {
     .trial {
-         padding-top: .6rem;
-        padding-bottom: .4rem;
+        padding-top: $rowsScreenPaddingTop;
+        padding-bottom: $rowsScreenPaddingBottom;
     }
 }
 
 @media only screen and (max-width: 834px) {
     .trial {
-        padding-left: .938rem;
-        padding-right: .938rem;
+        padding-left: $trialScreenPadding;
+        padding-right: $trialScreenPadding;
     }
 }
 
 
 @media only screen and (max-width: 834px) {
     .trial-contains-img {
-        width: 30%;
-        
+        width: $trialImgScreenWidth;
+        padding: $trialImgScreenPadding;        
     }
 }
 
 @media only screen and (max-width: 834px) {
     .trial-info {
-        width: 60%;
+        width: $trialInfoScreenWidth;
     }
 }
-
-/*
-@media only screen and (max-width: 834px) {
-    h4 {
-        line-height: 1.3 !important;
-    }
-}*/
 
 .trial-contains-img {
     float: $trialImgFloat;
@@ -135,7 +138,6 @@ $ulFontSize: .938rem;
 }
 
 .trial-info {
-    float: left;
     text-align: $trialInfoAlign;
     padding: $trialInfoPadding;
     
